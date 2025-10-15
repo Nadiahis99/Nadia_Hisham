@@ -1,30 +1,65 @@
-// script.js
-document.addEventListener("DOMContentLoaded", () => {
-  const toggleBtn = document.getElementById("darkModeToggle");
-  const body = document.body;
+// ================== Dark Mode Toggle ==================
+const darkModeToggle = document.getElementById('darkModeToggle');
+const body = document.body;
 
-  if (!toggleBtn) {
-    console.warn("darkModeToggle not found in the DOM.");
-    return;
-  }
+darkModeToggle.addEventListener('click', () => {
+  body.classList.toggle('dark');
+  localStorage.setItem('darkMode', body.classList.contains('dark'));
+});
 
-  const ICON_MOON = '<i class="bi bi-moon"></i>';
-  const ICON_SUN  = '<i class="bi bi-sun"></i>';
+// Check for saved dark mode preference
+if (localStorage.getItem('darkMode') === 'true') {
+  body.classList.add('dark');
+}
 
-  // 1) وضع مبدئي: من localStorage أو من prefered color scheme
-  const saved = localStorage.getItem("theme");
-  if (saved === "dark" || (!saved && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-    body.classList.add("dark");
-    toggleBtn.innerHTML = ICON_SUN;
+// ================== Mobile Menu Toggle ==================
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
+
+hamburger.addEventListener('click', () => {
+  navMenu.classList.toggle('active');
+});
+
+// Close menu when a link is clicked
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    navMenu.classList.remove('active');
+  });
+});
+
+// ================== Back to Top Button ==================
+const backToTop = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 300) {
+    backToTop.classList.add('show');
   } else {
-    body.classList.remove("dark");
-    toggleBtn.innerHTML = ICON_MOON;
+    backToTop.classList.remove('show');
   }
+});
 
-  // 2) حدث الضغط على الزر
-  toggleBtn.addEventListener("click", () => {
-    const isDark = body.classList.toggle("dark"); // يبدّل كلاس 'dark' على الـ body
-    toggleBtn.innerHTML = isDark ? ICON_SUN : ICON_MOON;
-    localStorage.setItem("theme", isDark ? "dark" : "light");
+backToTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// ================== Smooth Scroll for Navigation Links ==================
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+
+// ================== Smooth Scroll for Navigation Links ==================
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
   });
 });

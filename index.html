@@ -1,36 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nadia Hisham | Portfolio</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <!-- Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
- 
+
   <!-- Navbar -->
   <nav class="navbar">
     <div class="nav-container">
       <div class="nav-logo">
-        <a href="#">Nadia Hisham</a>
+        <a href="#">Nadia<span style="color:#4A6CF7;">.</span></a>
       </div>
-      <div class="nav-menu">
-        <a href="#about" class="nav-link">About me</a>
-        <a href="#projects" class="nav-link">My Projects</a>
-        <a href="#" class="nav-link btn-download">Download CV</a>
-        <!-- Dark Mode Toggle -->
+      <button class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-menu" id="navMenu">
         <button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">
           <i class="bi bi-moon"></i>
         </button>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#certificates" class="nav-link">Certificates</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="Nadia Hisham (2).pdf" class="nav-link btn-download">CV</a>
       </div>
     </div>
   </nav>
@@ -39,19 +46,18 @@
   <section class="hero">
     <div class="hero-container">
       <div class="hero-content">
-        <h1 class="hero-welcome">Welcome to my portfolio</h1>
-        <h2 class="hero-name">Hi, I'm Nadia Hisham</h2>
-        <h3 class="hero-title">Software Engineer | .NET Developer</h3>
+        <h1 class="hero-welcome">👋 Hi, I'm Nadia Hisham</h1>
+        <h2 class="hero-name">.NET Developer & Software Engineer</h2>
         <p class="hero-desc">
-          I create modern and reliable applications using the Microsoft .NET ecosystem
+          Passionate about building smart, scalable, and modern applications using Microsoft technologies.
         </p>
         <div class="hero-buttons">
-          <a href="#projects" class="btn btn-primary">My Projects</a>
+          <a href="#projects" class="btn btn-primary">View Projects</a>
           <a href="Nadia Hisham (2).pdf" class="btn btn-secondary">Download CV</a>
         </div>
       </div>
       <div class="hero-image">
-        <img src="my.png" alt="Nadia Hisham">
+        <img src="my.png" alt="Nadia Hisham" />
       </div>
     </div>
   </section>
@@ -59,12 +65,69 @@
   <!-- About Section -->
   <section id="about" class="about">
     <div class="container">
-      <h2 class="section-title">About me</h2>
+      <h2 class="section-title">About Me</h2>
       <div class="about-content">
         <p>
-          Welcome to my portfolio. I'm Nadia Hisham, Software Engineer & .NET Developer.  
-          I build and maintain ASP.NET Core web applications and design efficient APIs and databases.
+          I'm a Software Engineer specialized in developing modern web applications with ASP.NET Core, C#, and SQL Server.  
+          I focus on writing clean, efficient, and maintainable code — always learning and experimenting with the latest tools in the .NET ecosystem.
         </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills">
+    <div class="container">
+      <h2 class="section-title">Skills & Technologies</h2>
+      <div class="skills-grid">
+        <div class="skill-item">
+          <i class="bi bi-lightning-fill"></i>
+          <span>C#</span>
+        </div>
+        <div class="skill-item">
+          <i class="bi bi-code-square"></i>
+          <span>ASP.NET Core</span>
+        </div>
+        <div class="skill-item">
+          <i class="bi bi-database"></i>
+          <span>SQL Server</span>
+        </div>
+        <div class="skill-item">
+          <i class="bi bi-diagram-3"></i>
+          <span>.NET 8</span>
+        </div>
+        <div class="skill-item">
+          <i class="bi bi-cpu"></i>
+          <span>ML.NET</span>
+        </div>
+        <div class="skill-item">
+          <i class="bi bi-browser-chrome"></i>
+          <span>HTML/CSS</span>
+        </div>
+        <div class="skill-item">
+          <i class="bi bi-filetype-js"></i>
+          <span>JavaScript</span>
+        </div>
+        <div class="skill-item">
+          <i class="bi bi-palette-fill"></i>
+          <span>UI/UX Design</span>
+        </div>
+        <div class="skill-item">
+          <i class="bi bi-git"></i>
+          <span>Git</span>
+        </div>
+        <div class="skill-item">
+          <i class="bi bi-gear-fill"></i>
+          <span>REST APIs</span>
+        </div>
+        <div class="skill-item">
+          <i class="bi bi-cloud-fill"></i>
+          <span>Azure</span>
+        </div>
+        <div class="skill-item">
+          <i class="bi bi-shield-check"></i>
+          <span>Clean Code</span>
+        </div>
       </div>
     </div>
   </section>
@@ -72,50 +135,67 @@
   <!-- Projects Section -->
   <section id="projects" class="projects">
     <div class="container">
-      <h2 class="section-title">My Projects</h2>
+      <h2 class="section-title">Projects</h2>
       <div class="projects-grid">
 
-        <!-- Project 1 -->
         <div class="project-card">
-          <div class="project-image">
-            <img src="assets/pr1.png" alt="Company Website">
-          </div>
+          <div class="project-image"><img src="assets/pr1.png" alt="Business Website" /></div>
           <div class="project-info">
             <h3>Modern Business Website</h3>
-            <p>A responsive and modern website for a business company, featuring a clean design, smooth navigation, and fully optimized for mobile and desktop devices.</p>
-            <a href="https://nadiahis99.github.io/bizpro-landing/#contact" target="_blank" class="btn btn-secondary">Visit Website</a>
+            <p>Responsive business website with smooth animations and mobile-first UI.</p>
+            <a href="https://nadiahis99.github.io/bizpro-landing/#contact" target="_blank" class="btn btn-secondary">Live Demo</a>
           </div>
         </div>
 
-        <!-- Project 2 -->
         <div class="project-card">
-          <div class="project-image">
-            <img src="assets/pr2.png" alt="Fraud Detection Web App">
-          </div>
+          <div class="project-image"><img src="assets/pr2.png" alt="Fraud Detection App" /></div>
           <div class="project-info">
             <h3>Financial Fraud Detection System</h3>
-            <p>
-              A powerful enterprise-grade Web App for monitoring financial transactions in real-time.  
-              The system leverages <strong>ML.NET</strong> machine learning models to predict and flag potential fraudulent activities.  
-              Designed with a modern responsive UI and seamless integration for enterprise financial systems.
-            </p>
-            <a href="https://nadiahis99.github.io/Financial-Fraud-Detection-System-/" target="_blank" class="btn btn-secondary">Visit Website</a>
+            <p>Real-time ML.NET powered app that detects suspicious transactions with AI-driven insights.</p>
+            <a href="https://nadiahis99.github.io/Financial-Fraud-Detection-System-/" target="_blank" class="btn btn-secondary">Explore</a>
           </div>
         </div>
 
-        <!-- Project 3 -->
         <div class="project-card">
-          <div class="project-image">
-            <img src="assets/pr3.png" alt="Healthcare Appointment Assistant">
-          </div>
+          <div class="project-image"><img src="assets/pr3.png" alt="Healthcare Assistant" /></div>
           <div class="project-info">
             <h3>Healthcare Appointment Assistant</h3>
-            <p>
-              An intelligent healthcare booking system that helps patients schedule doctor appointments efficiently.  
-              The system uses <strong>.NET 8</strong> with <strong>ML.NET</strong> to recommend the best doctor or earliest available slot.  
-              Includes a smart dashboard for doctors and patients, modern UI, and secure integration with healthcare records.
-            </p>
-            <a href="https://nadiahis99.github.io/Healthcare-Appointment-Assistant/" target="_blank" class="btn btn-secondary">Visit Website</a>
+            <p>AI-assisted appointment booking system using .NET 8 and ML.NET with smart scheduling.</p>
+            <a href="https://nadiahis99.github.io/Healthcare-Appointment-Assistant/" target="_blank" class="btn btn-secondary">Open</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Certificates Section -->
+  <section id="certificates" class="projects">
+    <div class="container">
+      <h2 class="section-title">Certificates</h2>
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div class="project-image"><img src="cert/it.png" alt="Microsoft .NET Certificate" /></div>
+          <div class="project-info">
+            <h3>IT Specialist - Artificial Intelligence</h3>
+            <p> Understanding AI fundamentals, machine learning, data processing, and applying AI solutions in work environments</p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image"><img src="cert/c.png" alt="Machine Learning Certificate" /></div>
+          <div class="project-info">
+            <h3>CCNA: Switching, Routing, and Wireless Essentials</h3>
+            <p> Configuring and troubleshooting switches and routers, understanding network protocols, implementing wireless networks, and managing network operations</p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image"><img src="cert/fun.png" alt="Web Development" /></div>
+          <div class="project-info">
+            <h3>AWS Academy Graduate - Cloud Foundations</h3>
+            <p>Skills Acquired: Understanding cloud concepts, core AWS services, cloud architecture, and basic cloud deployment and management</p>
           </div>
         </div>
 
@@ -126,18 +206,11 @@
   <!-- Contact Section -->
   <section id="contact" class="contact">
     <div class="container">
-      <h2 class="section-title">Contact Me</h2>
-      <div class="contact-content">
-        <p>Have a project or collaboration in mind? Let’s talk!</p>
-        <div class="contact-buttons">
-          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nadiahisham205@gmail.com" 
-   target="_blank" 
-   class="btn btn-primary">
-   Email Me
-</a>
-
-          <a href="https://www.linkedin.com/in/nadia-hisham00/" target="_blank" class="btn btn-secondary">LinkedIn</a>
-        </div>
+      <h2 class="section-title">Let's Connect</h2>
+      <p>Interested in collaborating or just saying hi? Reach out 👇</p>
+      <div class="contact-buttons">
+        <a href="mailto:nadiahisham205@gmail.com" class="btn btn-primary">Email Me</a>
+        <a href="https://www.linkedin.com/in/nadia-hisham00/" target="_blank" class="btn btn-secondary">LinkedIn</a>
       </div>
     </div>
   </section>
@@ -145,9 +218,14 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>© 2025 Nadia Hisham. All rights reserved.</p>
+      <p>© 2025 Nadia Hisham. </p>
     </div>
   </footer>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop">
+    <i class="bi bi-arrow-up"></i>
+  </button>
 
   <!-- Scripts -->
   <script src="script.js"></script>
