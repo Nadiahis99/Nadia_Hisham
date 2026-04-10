@@ -1,233 +1,589 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nadia Hisham | Portfolio</title>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Nadia Hisham — Software Engineer & Freelancer</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"/>
+<style>
+:root {
+  --bg:#07090F; --bg2:#0C0F1A; --bg3:#111520; --bg4:#161B2E;
+  --border:rgba(255,255,255,0.07); --border2:rgba(255,255,255,0.13);
+  --accent:#4F8EF7; --accent2:#7C5CFA; --green:#22D3A5; --amber:#F5A74A;
+  --text:#EEF2FF; --muted:#7E8BA0; --muted2:#4A5568; --r:14px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(rgba(79,142,247,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(79,142,247,0.025) 1px,transparent 1px);
+  background-size:64px 64px}
+.wrap{position:relative;z-index:1;max-width:1080px;margin:0 auto;padding:0 2rem}
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:60px;display:flex;align-items:center;
+  padding:0 2.5rem;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  background:rgba(7,9,15,0.85);border-bottom:1px solid var(--border);gap:2rem}
+.nav-logo{font-size:1.05rem;font-weight:800;letter-spacing:0.04em;white-space:nowrap}
+.nav-logo em{font-style:normal;color:var(--accent)}
+.nav-center{display:flex;gap:1.75rem;flex:1;justify-content:center;list-style:none}
+.nav-center a{font-family:'DM Mono',monospace;font-size:11.5px;color:var(--muted);text-decoration:none;letter-spacing:0.1em;transition:color 0.2s}
+.nav-center a:hover,.nav-center a.active{color:var(--text)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-pill{display:flex;align-items:center;gap:6px;font-family:'DM Mono',monospace;font-size:10.5px;color:var(--green);
+  background:rgba(34,211,165,0.07);border:1px solid rgba(34,211,165,0.18);padding:5px 12px;border-radius:30px;white-space:nowrap}
+.dot-pulse{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s ease infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(34,211,165,0.45)}60%{box-shadow:0 0 0 6px rgba(34,211,165,0)}}
+.nav-cv{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.08em;color:var(--accent);
+  border:1px solid rgba(79,142,247,0.3);padding:6px 16px;border-radius:6px;text-decoration:none;
+  background:rgba(79,142,247,0.06);transition:all 0.2s;white-space:nowrap}
+.nav-cv:hover{background:rgba(79,142,247,0.14);border-color:var(--accent)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{width:22px;height:1.5px;background:var(--text);display:block;transition:all 0.3s;border-radius:2px}
 
-  <!-- Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:8rem 0 5rem;position:relative}
+.hero-glow1{position:absolute;top:5%;right:-80px;width:580px;height:580px;border-radius:50%;
+  background:radial-gradient(circle,rgba(79,142,247,0.10) 0%,transparent 68%);pointer-events:none;animation:drift 9s ease-in-out infinite}
+.hero-glow2{position:absolute;bottom:5%;left:-120px;width:480px;height:480px;border-radius:50%;
+  background:radial-gradient(circle,rgba(124,92,250,0.08) 0%,transparent 68%);pointer-events:none;animation:drift 12s ease-in-out infinite reverse}
+@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(20px,-30px)}}
+.hero-grid{display:grid;grid-template-columns:1fr 260px;gap:5rem;align-items:center}
+.hero-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:1.4rem}
+.hero-eyebrow-line{width:36px;height:1px;background:var(--accent)}
+.hero-eyebrow span{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.18em;color:var(--accent);text-transform:uppercase}
+h1.hero-name{font-size:clamp(3.2rem,7vw,5.8rem);font-weight:800;line-height:0.95;letter-spacing:-0.04em;margin-bottom:1.1rem}
+.hero-roles{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:1.3rem}
+.role-chip{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.07em;padding:5px 13px;border-radius:30px;border:1px solid}
+.role-chip.blue{color:var(--accent);border-color:rgba(79,142,247,0.3);background:rgba(79,142,247,0.07)}
+.role-chip.purple{color:#A78BFA;border-color:rgba(167,139,250,0.3);background:rgba(167,139,250,0.07)}
+.role-chip.green{color:var(--green);border-color:rgba(34,211,165,0.3);background:rgba(34,211,165,0.07)}
+.hero-sep{color:var(--muted2);font-size:12px}
+.hero-desc{font-size:1rem;color:var(--muted);line-height:1.8;max-width:460px;margin-bottom:2.2rem}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:3rem}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#fff;padding:12px 26px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:0.04em;transition:opacity 0.2s,transform 0.2s}
+.btn-primary:hover{opacity:0.88;transform:translateY(-1px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;color:var(--text);padding:11px 26px;border-radius:8px;
+  text-decoration:none;font-size:13px;font-weight:500;border:1px solid var(--border2);background:rgba(255,255,255,0.03);transition:all 0.2s}
+.btn-ghost:hover{background:rgba(255,255,255,0.07);border-color:rgba(255,255,255,0.22)}
+.hero-kpis{display:flex;gap:2.2rem;padding-top:2rem;border-top:1px solid var(--border)}
+.kpi-num{font-size:2rem;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.kpi-lbl{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted2);letter-spacing:0.08em;margin-top:4px}
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css" />
+/* AVATAR */
+.avatar-wrap{position:relative;display:flex;justify-content:center}
+.avatar-ring{width:220px;height:220px;border-radius:50%;background:conic-gradient(var(--accent),var(--accent2),var(--accent));padding:2px;animation:spin 12s linear infinite}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.avatar-inner{width:100%;height:100%;border-radius:50%;background:var(--bg2);display:flex;align-items:center;justify-content:center;
+  font-size:3.8rem;font-weight:800;letter-spacing:-0.06em;animation:spin 12s linear infinite reverse}
+.avatar-badge{position:absolute;bottom:6px;left:50%;transform:translateX(-50%);background:var(--bg3);border:1px solid var(--border2);
+  border-radius:30px;padding:7px 14px;font-family:'DM Mono',monospace;font-size:10px;color:var(--green);
+  display:flex;align-items:center;gap:7px;white-space:nowrap;backdrop-filter:blur(12px)}
+.avatar-orb{position:absolute;top:-12px;right:-12px;width:40px;height:40px;border-radius:50%;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:1.2rem;border:2px solid var(--bg)}
+
+/* SECTIONS */
+section{padding:5.5rem 0;position:relative;z-index:1}
+.sec-head{display:flex;align-items:center;gap:14px;margin-bottom:2.8rem}
+.sec-head .n{font-family:'DM Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:0.12em}
+.sec-head h2{font-size:1.9rem;font-weight:700;letter-spacing:-0.025em}
+.sec-head .hr{flex:1;height:1px;background:var(--border)}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:2.5rem;align-items:start}
+.about-body p{font-size:15px;color:var(--muted);line-height:1.85;margin-bottom:1rem}
+.about-body p strong{color:var(--text);font-weight:600}
+.info-list{display:flex;flex-direction:column;gap:10px}
+.info-row{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:14px 18px;
+  display:flex;align-items:center;gap:14px;transition:border-color 0.25s,transform 0.25s}
+.info-row:hover{border-color:rgba(79,142,247,0.28);transform:translateX(5px)}
+.info-ico{width:36px;height:36px;border-radius:9px;background:rgba(79,142,247,0.08);border:1px solid rgba(79,142,247,0.18);
+  display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:15px;flex-shrink:0}
+.info-lbl{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted2);letter-spacing:0.08em}
+.info-val{font-size:13px;font-weight:600;margin-top:2px}
+
+/* EXPERIENCE */
+.exp-stack{display:flex;flex-direction:column;gap:14px}
+.exp-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem 2rem;
+  position:relative;overflow:hidden;transition:border-color 0.25s,transform 0.25s}
+.exp-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:3px 0 0 3px}
+.exp-card.sieraj::before{background:linear-gradient(to bottom,var(--accent),var(--accent2))}
+.exp-card.freelance::before{background:linear-gradient(to bottom,var(--green),#0EA271)}
+.exp-card:hover{border-color:rgba(79,142,247,0.22);transform:translateY(-2px)}
+.exp-top{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1rem;flex-wrap:wrap}
+.exp-left{display:flex;align-items:center;gap:1rem}
+.exp-logo{width:46px;height:46px;border-radius:12px;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0}
+.exp-logo.sj{background:rgba(79,142,247,0.1);color:var(--accent)}
+.exp-logo.fl{background:rgba(34,211,165,0.1);color:var(--green)}
+.exp-ttl{font-size:1.05rem;font-weight:700;margin-bottom:2px}
+.exp-co{font-family:'DM Mono',monospace;font-size:11.5px}
+.exp-co.blue{color:var(--accent)}
+.exp-co.green{color:var(--green)}
+.badge-curr{font-family:'DM Mono',monospace;font-size:9.5px;padding:4px 11px;border-radius:20px;
+  background:rgba(34,211,165,0.09);color:var(--green);border:1px solid rgba(34,211,165,0.2);letter-spacing:0.06em;white-space:nowrap}
+.badge-free{font-family:'DM Mono',monospace;font-size:9.5px;padding:4px 11px;border-radius:20px;
+  background:rgba(245,167,74,0.09);color:var(--amber);border:1px solid rgba(245,167,74,0.2);letter-spacing:0.06em;white-space:nowrap}
+.exp-date{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted2);display:flex;align-items:center;gap:7px;margin-bottom:0.9rem}
+.exp-desc{font-size:14px;color:var(--muted);line-height:1.75}
+.exp-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:1rem}
+.etag{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);background:rgba(255,255,255,0.04);
+  border:1px solid var(--border);padding:3px 10px;border-radius:4px;letter-spacing:0.04em}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:11px}
+.skill-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:1.1rem 1.25rem;
+  cursor:default;transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s}
+.skill-card:hover{border-color:rgba(79,142,247,0.35);transform:translateY(-4px);box-shadow:0 14px 40px rgba(79,142,247,0.08)}
+.sk-ico{font-size:1.3rem;margin-bottom:0.65rem;display:block}
+.sk-name{font-size:13px;font-weight:600;margin-bottom:1px}
+.sk-type{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted2);letter-spacing:0.06em}
+.sk-bar{margin-top:10px;height:2px;background:var(--border);border-radius:2px;overflow:hidden}
+.sk-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width 1.2s cubic-bezier(0.22,1,0.36,1)}
+
+/* PROJECTS */
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.proj-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;
+  display:flex;flex-direction:column;transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s}
+.proj-card:hover{border-color:rgba(79,142,247,0.28);transform:translateY(-6px);box-shadow:0 22px 55px rgba(0,0,0,0.45)}
+.proj-thumb{height:140px;display:flex;align-items:center;justify-content:center;font-size:2.8rem;position:relative}
+.proj-glow{position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent)}
+.proj-body{padding:1.4rem 1.5rem;flex:1;display:flex;flex-direction:column}
+.proj-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted2);letter-spacing:0.14em;margin-bottom:5px}
+.proj-ttl{font-size:1rem;font-weight:700;margin-bottom:6px;letter-spacing:-0.01em;line-height:1.3}
+.proj-desc{font-size:13px;color:var(--muted);line-height:1.65;flex:1;margin-bottom:1rem}
+.proj-techs{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1.1rem}
+.ptag{font-family:'DM Mono',monospace;font-size:10px;color:var(--accent);background:rgba(79,142,247,0.07);border:1px solid rgba(79,142,247,0.18);padding:3px 9px;border-radius:4px}
+.proj-link{display:inline-flex;align-items:center;gap:5px;font-size:12px;color:var(--accent);text-decoration:none;font-family:'DM Mono',monospace;letter-spacing:0.06em;transition:gap 0.2s}
+.proj-link:hover{gap:10px}
+
+/* CERTS */
+.certs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+.cert-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:1.4rem 1.5rem;transition:border-color 0.3s,transform 0.3s}
+.cert-card:hover{border-color:rgba(79,142,247,0.25);transform:translateY(-3px)}
+.cert-ico{width:44px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1rem;border:1px solid var(--border)}
+.cert-ttl{font-size:14px;font-weight:700;line-height:1.4;margin-bottom:4px}
+.cert-org{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.09em;margin-bottom:0.7rem}
+.cert-desc{font-size:12px;color:var(--muted2);line-height:1.6}
+
+/* REVIEWS */
+.reviews-intro{font-size:15px;color:var(--muted);margin-bottom:2.2rem;line-height:1.75;max-width:540px}
+.stars-overall{display:flex;align-items:center;gap:14px;margin-bottom:2.5rem;flex-wrap:wrap}
+.stars-big{color:var(--amber);font-size:1.4rem;letter-spacing:3px}
+.stars-num{font-size:2.2rem;font-weight:800}
+.stars-count{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted2)}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.review-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:1.6rem 1.75rem;
+  position:relative;overflow:hidden;transition:border-color 0.3s,transform 0.3s;display:flex;flex-direction:column;gap:1rem}
+.review-card::before{content:'\201C';position:absolute;top:-10px;right:18px;font-size:6rem;
+  color:rgba(79,142,247,0.07);font-family:Georgia,serif;line-height:1;pointer-events:none}
+.review-card:hover{border-color:rgba(79,142,247,0.22);transform:translateY(-3px)}
+.review-stars{color:var(--amber);font-size:12px;letter-spacing:2px}
+.review-text{font-size:14px;color:var(--muted);line-height:1.75;font-style:italic}
+.review-author{display:flex;align-items:center;gap:12px;margin-top:auto;padding-top:1rem;border-top:1px solid var(--border)}
+.review-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0}
+.review-name{font-size:13px;font-weight:600;margin-bottom:2px}
+.review-role{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted2);letter-spacing:0.06em}
+.review-platform{margin-left:auto;font-family:'DM Mono',monospace;font-size:10px;color:var(--muted2);display:flex;align-items:center;gap:5px;flex-shrink:0}
+.pdot{width:5px;height:5px;border-radius:50%}
+
+/* CONTACT */
+.contact-box{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:4.5rem;text-align:center;position:relative;overflow:hidden}
+.contact-box::before{content:'';position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(79,142,247,0.07) 0%,transparent 68%);pointer-events:none}
+.contact-lbl{font-family:'DM Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:1rem}
+.contact-h{font-size:clamp(2rem,5vw,3rem);font-weight:800;letter-spacing:-0.04em;margin-bottom:0.9rem;line-height:1.1}
+.contact-sub{font-size:15px;color:var(--muted);max-width:400px;margin:0 auto 2.5rem;line-height:1.8}
+.contact-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.contact-meta{display:flex;gap:2rem;justify-content:center;margin-top:2rem;flex-wrap:wrap}
+.contact-meta a{font-family:'DM Mono',monospace;font-size:11.5px;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:6px;transition:color 0.2s}
+.contact-meta a:hover{color:var(--text)}
+
+/* FOOTER */
+footer{padding:2rem 0;border-top:1px solid var(--border);position:relative;z-index:1}
+.foot-in{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.foot-copy{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted2);letter-spacing:0.05em}
+.foot-links{display:flex;gap:1.75rem}
+.foot-links a{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted2);text-decoration:none;transition:color 0.2s}
+.foot-links a:hover{color:var(--text)}
+#btt{position:fixed;bottom:2rem;right:2rem;width:42px;height:42px;border-radius:50%;background:var(--bg3);
+  border:1px solid var(--border2);color:var(--text);display:flex;align-items:center;justify-content:center;
+  cursor:pointer;opacity:0;transform:translateY(10px);transition:all 0.3s;z-index:90;font-size:1rem}
+#btt.show{opacity:1;transform:translateY(0)}
+#btt:hover{background:var(--accent);border-color:var(--accent)}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease}
+.reveal.vis{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:920px){
+  .hero-grid{grid-template-columns:1fr}
+  .avatar-wrap{display:none}
+  .about-grid{grid-template-columns:1fr}
+  .projects-grid{grid-template-columns:1fr 1fr}
+  .certs-grid{grid-template-columns:1fr 1fr}
+  .reviews-grid{grid-template-columns:1fr 1fr}
+  .nav-center{display:none}
+  .hamburger{display:flex}
+}
+@media(max-width:600px){
+  .projects-grid,.certs-grid,.reviews-grid{grid-template-columns:1fr}
+  .contact-box{padding:2.5rem 1.5rem}
+  .hero-kpis{flex-wrap:wrap;gap:1.5rem}
+  nav{padding:0 1.25rem}
+}
+</style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <div class="nav-logo">
-        <a href="#">Nadia<span style="color:#4A6CF7;">.</span></a>
-      </div>
-      <button class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <div class="nav-menu" id="navMenu">
-        <button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">
-          <i class="bi bi-moon"></i>
-        </button>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#skills" class="nav-link">Skills</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#certificates" class="nav-link">Certificates</a>
-        <a href="#contact" class="nav-link">Contact</a>
-        <a href="Nadia Hisham (2).pdf" class="nav-link btn-download">CV</a>
-      </div>
-    </div>
-  </nav>
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">Nadia<em>.</em></div>
+  <ul class="nav-center">
+    <li><a href="#about">about</a></li>
+    <li><a href="#experience">experience</a></li>
+    <li><a href="#skills">skills</a></li>
+    <li><a href="#projects">projects</a></li>
+    <li><a href="#reviews">reviews</a></li>
+    <li><a href="#contact">contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="nav-pill"><span class="dot-pulse"></span>available to freelance</div>
+    <a href="Nadia Hisham (2).pdf" class="nav-cv">cv.pdf</a>
+    <button class="hamburger" id="ham"><span></span><span></span><span></span></button>
+  </div>
+</nav>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-container">
-      <div class="hero-content">
-        <h1 class="hero-welcome">👋 Hi, I'm Nadia Hisham</h1>
-        <h2 class="hero-name">.NET Developer & Software Engineer</h2>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow1"></div>
+  <div class="hero-glow2"></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow">
+          <div class="hero-eyebrow-line"></div>
+          <span>software engineer · freelancer</span>
+        </div>
+        <h1 class="hero-name">Nadia<br>Hisham</h1>
+        <div class="hero-roles">
+          <span class="role-chip blue">.NET Developer</span>
+          <span class="hero-sep">/</span>
+          <span class="role-chip purple">ML.NET · Azure</span>
+          <span class="hero-sep">/</span>
+          <span class="role-chip green">Freelancer</span>
+        </div>
         <p class="hero-desc">
-          Passionate about building smart, scalable, and modern applications using Microsoft technologies.
+          Building intelligent, scalable enterprise applications with the .NET ecosystem.
+          Software Engineer Intern at <strong style="color:var(--text)">Sieraj</strong> and active freelancer
+          delivering end-to-end solutions for clients worldwide.
         </p>
-        <div class="hero-buttons">
-          <a href="#projects" class="btn btn-primary">View Projects</a>
-          <a href="Nadia Hisham (2).pdf" class="btn btn-secondary">Download CV</a>
+        <div class="hero-btns">
+          <a href="#projects" class="btn-primary"><span>View Projects</span><i class="bi bi-arrow-right"></i></a>
+          <a href="#contact" class="btn-ghost"><i class="bi bi-send"></i><span>Hire Me</span></a>
+        </div>
+        <div class="hero-kpis">
+          <div><div class="kpi-num">3+</div><div class="kpi-lbl">projects</div></div>
+          <div><div class="kpi-num">5★</div><div class="kpi-lbl">avg rating</div></div>
+          <div><div class="kpi-num">3</div><div class="kpi-lbl">certifications</div></div>
+          <div><div class="kpi-num">10+</div><div class="kpi-lbl">technologies</div></div>
         </div>
       </div>
-      <div class="hero-image">
-        <img src="my.png" alt="Nadia Hisham" />
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="about">
-    <div class="container">
-      <h2 class="section-title">About Me</h2>
-      <div class="about-content">
-        <p>
-          I'm a Software Engineer specialized in developing modern web applications with ASP.NET Core, C#, and SQL Server.  
-          I focus on writing clean, efficient, and maintainable code — always learning and experimenting with the latest tools in the .NET ecosystem.
-        </p>
+      <div class="avatar-wrap">
+        <div class="avatar-ring"><div class="avatar-inner">NH</div></div>
+        <div class="avatar-badge"><span class="dot-pulse"></span>open to freelance work</div>
+        <div class="avatar-orb">⚡</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="skills">
-    <div class="container">
-      <h2 class="section-title">Skills & Technologies</h2>
-      <div class="skills-grid">
-        <div class="skill-item">
-          <i class="bi bi-lightning-fill"></i>
-          <span>C#</span>
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="n">01.</span><h2>About me</h2><div class="hr"></div></div>
+    <div class="about-grid">
+      <div class="about-body reveal">
+        <p>I'm a <strong>Software Engineer</strong> specialized in <strong>ASP.NET Core, C#, and SQL Server</strong> — currently working as a Software Engineer Intern at <strong>Sieraj</strong> while running an active freelance practice delivering full-stack .NET solutions for clients across different industries.</p>
+        <p>My focus is on writing clean, efficient, and maintainable code. Particularly passionate about integrating <strong>machine learning</strong> into backend systems using <strong>ML.NET</strong> to build truly intelligent applications that solve real problems at scale.</p>
+        <p>As a freelancer, I help businesses move fast — from scoping and architecture all the way through to deployment on <strong>Azure</strong>.</p>
+      </div>
+      <div class="info-list reveal">
+        <div class="info-row">
+          <div class="info-ico"><i class="bi bi-geo-alt-fill"></i></div>
+          <div><div class="info-lbl">location</div><div class="info-val">Cairo, Egypt</div></div>
         </div>
-        <div class="skill-item">
-          <i class="bi bi-code-square"></i>
-          <span>ASP.NET Core</span>
+        <div class="info-row">
+          <div class="info-ico"><i class="bi bi-building-fill"></i></div>
+          <div><div class="info-lbl">employed at</div><div class="info-val">Sieraj · Intern</div></div>
         </div>
-        <div class="skill-item">
-          <i class="bi bi-database"></i>
-          <span>SQL Server</span>
+        <div class="info-row">
+          <div class="info-ico"><i class="bi bi-laptop-fill"></i></div>
+          <div><div class="info-lbl">freelance status</div><div class="info-val" style="color:var(--green)">Available ✓</div></div>
         </div>
-        <div class="skill-item">
-          <i class="bi bi-diagram-3"></i>
-          <span>.NET 8</span>
+        <div class="info-row">
+          <div class="info-ico"><i class="bi bi-code-slash"></i></div>
+          <div><div class="info-lbl">primary stack</div><div class="info-val">C# · ASP.NET Core · .NET 8</div></div>
         </div>
-        <div class="skill-item">
-          <i class="bi bi-cpu"></i>
-          <span>ML.NET</span>
-        </div>
-        <div class="skill-item">
-          <i class="bi bi-browser-chrome"></i>
-          <span>HTML/CSS</span>
-        </div>
-        <div class="skill-item">
-          <i class="bi bi-filetype-js"></i>
-          <span>JavaScript</span>
-        </div>
-        <div class="skill-item">
-          <i class="bi bi-palette-fill"></i>
-          <span>UI/UX Design</span>
-        </div>
-        <div class="skill-item">
-          <i class="bi bi-git"></i>
-          <span>Git</span>
-        </div>
-        <div class="skill-item">
-          <i class="bi bi-gear-fill"></i>
-          <span>REST APIs</span>
-        </div>
-        <div class="skill-item">
-          <i class="bi bi-cloud-fill"></i>
-          <span>Azure</span>
-        </div>
-        <div class="skill-item">
-          <i class="bi bi-shield-check"></i>
-          <span>Clean Code</span>
+        <div class="info-row">
+          <div class="info-ico"><i class="bi bi-envelope-fill"></i></div>
+          <div><div class="info-lbl">email</div><div class="info-val">nadiahisham205@gmail.com</div></div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="projects">
-    <div class="container">
-      <h2 class="section-title">Projects</h2>
-      <div class="projects-grid">
-
-        <div class="project-card">
-          <div class="project-image"><img src="assets/pr1.png" alt="Business Website" /></div>
-          <div class="project-info">
-            <h3>Modern Business Website</h3>
-            <p>Responsive business website with smooth animations and mobile-first UI.</p>
-            <a href="https://nadiahis99.github.io/bizpro-landing/#contact" target="_blank" class="btn btn-secondary">Live Demo</a>
+<!-- EXPERIENCE -->
+<section id="experience" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="n">02.</span><h2>Experience</h2><div class="hr"></div></div>
+    <div class="exp-stack">
+      <div class="exp-card sieraj reveal">
+        <div class="exp-top">
+          <div class="exp-left">
+            <div class="exp-logo sj">SJ</div>
+            <div>
+              <div class="exp-ttl">Software Engineer Intern</div>
+              <div class="exp-co blue">Sieraj</div>
+            </div>
           </div>
+          <span class="badge-curr">● current</span>
         </div>
-
-        <div class="project-card">
-          <div class="project-image"><img src="assets/pr2.png" alt="Fraud Detection App" /></div>
-          <div class="project-info">
-            <h3>Financial Fraud Detection System</h3>
-            <p>Real-time ML.NET powered app that detects suspicious transactions with AI-driven insights.</p>
-            <a href="https://nadiahis99.github.io/Financial-Fraud-Detection-System-/" target="_blank" class="btn btn-secondary">Explore</a>
+        <div class="exp-date"><i class="bi bi-calendar3"></i> 2025 — Present &nbsp;·&nbsp; Cairo, Egypt · Full-time</div>
+        <div class="exp-desc">Contributing to enterprise-level .NET applications in an Agile team. Involved in REST API design, SQL Server optimization, code reviews, and implementing clean architecture patterns under senior guidance.</div>
+        <div class="exp-tags">
+          <span class="etag">C#</span><span class="etag">ASP.NET Core</span><span class="etag">SQL Server</span>
+          <span class="etag">REST APIs</span><span class="etag">Clean Architecture</span><span class="etag">Agile</span>
+        </div>
+      </div>
+      <div class="exp-card freelance reveal">
+        <div class="exp-top">
+          <div class="exp-left">
+            <div class="exp-logo fl"><i class="bi bi-laptop"></i></div>
+            <div>
+              <div class="exp-ttl">Freelance Software Engineer</div>
+              <div class="exp-co green">Self-Employed</div>
+            </div>
           </div>
+          <span class="badge-free">● freelancing</span>
         </div>
-
-        <div class="project-card">
-          <div class="project-image"><img src="assets/pr3.png" alt="Healthcare Assistant" /></div>
-          <div class="project-info">
-            <h3>Healthcare Appointment Assistant</h3>
-            <p>AI-assisted appointment booking system using .NET 8 and ML.NET with smart scheduling.</p>
-            <a href="https://nadiahis99.github.io/Healthcare-Appointment-Assistant/" target="_blank" class="btn btn-secondary">Open</a>
-          </div>
+        <div class="exp-date"><i class="bi bi-calendar3"></i> 2024 — Present &nbsp;·&nbsp; Remote · Worldwide</div>
+        <div class="exp-desc">Delivering end-to-end .NET solutions for clients across different industries — from requirements and system design through to deployment. Projects include web applications, REST APIs, data dashboards, and ML-powered features integrated into existing systems.</div>
+        <div class="exp-tags">
+          <span class="etag">C#</span><span class="etag">ASP.NET Core</span><span class="etag">ML.NET</span>
+          <span class="etag">Azure</span><span class="etag">SQL Server</span><span class="etag">UI/UX</span><span class="etag">Client Delivery</span>
         </div>
-
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Certificates Section -->
-  <section id="certificates" class="projects">
-    <div class="container">
-      <h2 class="section-title">Certificates</h2>
-      <div class="projects-grid">
+<!-- SKILLS -->
+<section id="skills" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="n">03.</span><h2>Skills & Technologies</h2><div class="hr"></div></div>
+    <div class="skills-grid">
+      <div class="skill-card reveal"><span class="sk-ico">⚡</span><div class="sk-name">C#</div><div class="sk-type">language</div><div class="sk-bar"><div class="sk-fill" data-w="92" style="width:0%"></div></div></div>
+      <div class="skill-card reveal"><span class="sk-ico">🌐</span><div class="sk-name">ASP.NET Core</div><div class="sk-type">framework</div><div class="sk-bar"><div class="sk-fill" data-w="88" style="width:0%"></div></div></div>
+      <div class="skill-card reveal"><span class="sk-ico">🗄</span><div class="sk-name">SQL Server</div><div class="sk-type">database</div><div class="sk-bar"><div class="sk-fill" data-w="85" style="width:0%"></div></div></div>
+      <div class="skill-card reveal"><span class="sk-ico">🤖</span><div class="sk-name">ML.NET</div><div class="sk-type">machine learning</div><div class="sk-bar"><div class="sk-fill" data-w="78" style="width:0%"></div></div></div>
+      <div class="skill-card reveal"><span class="sk-ico">☁️</span><div class="sk-name">Azure</div><div class="sk-type">cloud</div><div class="sk-bar"><div class="sk-fill" data-w="72" style="width:0%"></div></div></div>
+      <div class="skill-card reveal"><span class="sk-ico">⚙️</span><div class="sk-name">REST APIs</div><div class="sk-type">architecture</div><div class="sk-bar"><div class="sk-fill" data-w="90" style="width:0%"></div></div></div>
+      <div class="skill-card reveal"><span class="sk-ico">🔧</span><div class="sk-name">.NET 8</div><div class="sk-type">platform</div><div class="sk-bar"><div class="sk-fill" data-w="87" style="width:0%"></div></div></div>
+      <div class="skill-card reveal"><span class="sk-ico">📦</span><div class="sk-name">Git</div><div class="sk-type">version control</div><div class="sk-bar"><div class="sk-fill" data-w="83" style="width:0%"></div></div></div>
+      <div class="skill-card reveal"><span class="sk-ico">🎨</span><div class="sk-name">HTML / CSS</div><div class="sk-type">frontend</div><div class="sk-bar"><div class="sk-fill" data-w="80" style="width:0%"></div></div></div>
+      <div class="skill-card reveal"><span class="sk-ico">✨</span><div class="sk-name">JavaScript</div><div class="sk-type">scripting</div><div class="sk-bar"><div class="sk-fill" data-w="75" style="width:0%"></div></div></div>
+    </div>
+  </div>
+</section>
 
-        <div class="project-card">
-          <div class="project-image"><img src="cert/it.png" alt="Microsoft .NET Certificate" /></div>
-          <div class="project-info">
-            <h3>IT Specialist - Artificial Intelligence</h3>
-            <p> Understanding AI fundamentals, machine learning, data processing, and applying AI solutions in work environments</p>
-          </div>
+<!-- PROJECTS -->
+<section id="projects" style="padding-top:3rem">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="n">04.</span><h2>Projects</h2><div class="hr"></div></div>
+    <div class="projects-grid">
+      <div class="proj-card reveal">
+        <div class="proj-thumb" style="background:linear-gradient(135deg,#0C1C4A,#0F2460);">💼<div class="proj-glow"></div></div>
+        <div class="proj-body">
+          <div class="proj-num">project — 01</div>
+          <div class="proj-ttl">Modern Business Website</div>
+          <div class="proj-desc">Responsive business landing page with smooth CSS animations, scroll effects, and mobile-first design.</div>
+          <div class="proj-techs"><span class="ptag">HTML</span><span class="ptag">CSS</span><span class="ptag">JavaScript</span></div>
+          <a href="https://nadiahis99.github.io/bizpro-landing/#contact" target="_blank" class="proj-link">live demo <i class="bi bi-arrow-up-right"></i></a>
         </div>
-
-        <div class="project-card">
-          <div class="project-image"><img src="cert/c.png" alt="Machine Learning Certificate" /></div>
-          <div class="project-info">
-            <h3>CCNA: Switching, Routing, and Wireless Essentials</h3>
-            <p> Configuring and troubleshooting switches and routers, understanding network protocols, implementing wireless networks, and managing network operations</p>
-          </div>
+      </div>
+      <div class="proj-card reveal">
+        <div class="proj-thumb" style="background:linear-gradient(135deg,#160D35,#1D1040);">🔍<div class="proj-glow"></div></div>
+        <div class="proj-body">
+          <div class="proj-num">project — 02</div>
+          <div class="proj-ttl">Financial Fraud Detection</div>
+          <div class="proj-desc">Real-time ML.NET system detecting suspicious transactions using trained AI models and analytical dashboards.</div>
+          <div class="proj-techs"><span class="ptag">ML.NET</span><span class="ptag">C#</span><span class="ptag">.NET 8</span><span class="ptag">SQL</span></div>
+          <a href="https://nadiahis99.github.io/Financial-Fraud-Detection-System-/" target="_blank" class="proj-link">explore <i class="bi bi-arrow-up-right"></i></a>
         </div>
-
-        <div class="project-card">
-          <div class="project-image"><img src="cert/fun.png" alt="Web Development" /></div>
-          <div class="project-info">
-            <h3>AWS Academy Graduate - Cloud Foundations</h3>
-            <p>Skills Acquired: Understanding cloud concepts, core AWS services, cloud architecture, and basic cloud deployment and management</p>
-          </div>
+      </div>
+      <div class="proj-card reveal">
+        <div class="proj-thumb" style="background:linear-gradient(135deg,#092B18,#0C3820);">🏥<div class="proj-glow"></div></div>
+        <div class="proj-body">
+          <div class="proj-num">project — 03</div>
+          <div class="proj-ttl">Healthcare Appointment Assistant</div>
+          <div class="proj-desc">AI-assisted booking system with smart scheduling using .NET 8, ML.NET, and predictive availability logic.</div>
+          <div class="proj-techs"><span class="ptag">ML.NET</span><span class="ptag">ASP.NET</span><span class="ptag">SQL Server</span></div>
+          <a href="https://nadiahis99.github.io/Healthcare-Appointment-Assistant/" target="_blank" class="proj-link">open project <i class="bi bi-arrow-up-right"></i></a>
         </div>
-
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="contact">
-    <div class="container">
-      <h2 class="section-title">Let's Connect</h2>
-      <p>Interested in collaborating or just saying hi? Reach out 👇</p>
-      <div class="contact-buttons">
-        <a href="mailto:nadiahisham205@gmail.com" class="btn btn-primary">Email Me</a>
-        <a href="https://www.linkedin.com/in/nadia-hisham00/" target="_blank" class="btn btn-secondary">LinkedIn</a>
+<!-- CERTIFICATES -->
+<section id="certificates" style="padding-top:3rem">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="n">05.</span><h2>Certificates</h2><div class="hr"></div></div>
+    <div class="certs-grid">
+      <div class="cert-card reveal">
+        <div class="cert-ico" style="background:rgba(124,92,250,0.1);border-color:rgba(124,92,250,0.2);">🧠</div>
+        <div class="cert-ttl">IT Specialist – Artificial Intelligence</div>
+        <div class="cert-org" style="color:#A78BFA;">CERTIPORT</div>
+        <div class="cert-desc">AI fundamentals, machine learning, data processing, and applying AI in enterprise environments.</div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-ico" style="background:rgba(34,211,165,0.1);border-color:rgba(34,211,165,0.2);">🌐</div>
+        <div class="cert-ttl">CCNA: Switching, Routing & Wireless Essentials</div>
+        <div class="cert-org" style="color:var(--green);">CISCO</div>
+        <div class="cert-desc">Configuring and troubleshooting network devices, implementing wireless networks and protocols.</div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-ico" style="background:rgba(245,167,74,0.1);border-color:rgba(245,167,74,0.2);">☁️</div>
+        <div class="cert-ttl">AWS Academy Graduate – Cloud Foundations</div>
+        <div class="cert-org" style="color:var(--amber);">AMAZON WEB SERVICES</div>
+        <div class="cert-desc">Core AWS services, cloud architecture, and foundational deployment and management practices.</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <p>© 2025 Nadia Hisham. </p>
+<!-- CLIENT REVIEWS -->
+<section id="reviews" style="padding-top:3rem">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="n">06.</span><h2>Client Reviews</h2><div class="hr"></div></div>
+    <p class="reviews-intro reveal">What clients say about working with me — from initial brief to final delivery.</p>
+    <div class="stars-overall reveal">
+      <div class="stars-big">★★★★★</div>
+      <div class="stars-num">5.0</div>
+      <div class="stars-count">/ 5.0 &nbsp;·&nbsp; based on client feedback</div>
     </div>
-  </footer>
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Nadia delivered a clean, well-structured ASP.NET Core API ahead of schedule. The code quality was excellent — very readable and easy to extend. Will definitely hire again."</div>
+        <div class="review-author">
+          <div class="review-avatar" style="background:rgba(79,142,247,0.15);color:var(--accent);">AK</div>
+          <div>
+            <div class="review-name">Ahmed K.</div>
+            <div class="review-role">startup founder · cairo</div>
+          </div>
+          <div class="review-platform"><span class="pdot" style="background:var(--green)"></span>verified</div>
+        </div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Exceptional .NET developer. She understood our requirements quickly and built a SQL Server backend that handles our data volume without any performance issues. Highly recommended."</div>
+        <div class="review-author">
+          <div class="review-avatar" style="background:rgba(124,92,250,0.15);color:#A78BFA;">SR</div>
+          <div>
+            <div class="review-name">Sara R.</div>
+            <div class="review-role">product manager · uae</div>
+          </div>
+          <div class="review-platform"><span class="pdot" style="background:var(--green)"></span>verified</div>
+        </div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Nadia integrated an ML.NET model into our existing system seamlessly. The results were beyond expectations — smart, fast, and well-documented. A true professional."</div>
+        <div class="review-author">
+          <div class="review-avatar" style="background:rgba(34,211,165,0.15);color:var(--green);">MH</div>
+          <div>
+            <div class="review-name">Mohamed H.</div>
+            <div class="review-role">tech lead · remote</div>
+          </div>
+          <div class="review-platform"><span class="pdot" style="background:var(--green)"></span>verified</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- Back to Top Button -->
-  <button class="back-to-top" id="backToTop">
-    <i class="bi bi-arrow-up"></i>
-  </button>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-box reveal">
+      <div class="contact-lbl">get in touch</div>
+      <h2 class="contact-h">Let's build<br>something great.</h2>
+      <p class="contact-sub">Open to freelance projects, long-term collaborations, or just a conversation about .NET, AI, or cloud architecture.</p>
+      <div class="contact-btns">
+        <a href="mailto:nadiahisham205@gmail.com" class="btn-primary"><i class="bi bi-envelope"></i><span>Send an Email</span></a>
+        <a href="https://www.linkedin.com/in/nadia-hisham00/" target="_blank" class="btn-ghost"><i class="bi bi-linkedin"></i><span>LinkedIn</span></a>
+      </div>
+      <div class="contact-meta">
+        <a href="mailto:nadiahisham205@gmail.com"><i class="bi bi-envelope-fill"></i>nadiahisham205@gmail.com</a>
+        <a href="https://www.linkedin.com/in/nadia-hisham00/" target="_blank"><i class="bi bi-linkedin"></i>/in/nadia-hisham00</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- Scripts -->
-  <script src="script.js"></script>
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-in">
+      <div class="foot-copy">© 2025 Nadia Hisham · Software Engineer & Freelancer</div>
+      <div class="foot-links">
+        <a href="mailto:nadiahisham205@gmail.com">email</a>
+        <a href="https://www.linkedin.com/in/nadia-hisham00/" target="_blank">linkedin</a>
+        <a href="Nadia Hisham (2).pdf">cv</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button id="btt" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+<script>
+const revEls = document.querySelectorAll('.reveal');
+const ro = new IntersectionObserver((entries) => {
+  entries.forEach((e,i) => {
+    if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('vis'),i*45); ro.unobserve(e.target); }
+  });
+},{threshold:0.08});
+revEls.forEach(r=>ro.observe(r));
+
+const bars = document.querySelectorAll('.sk-fill');
+const bo = new IntersectionObserver((entries) => {
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.style.width=e.target.dataset.w+'%'; bo.unobserve(e.target); } });
+},{threshold:0.5});
+bars.forEach(b=>bo.observe(b));
+
+const btt=document.getElementById('btt');
+window.addEventListener('scroll',()=>btt.classList.toggle('show',scrollY>400));
+btt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+const secs=document.querySelectorAll('section[id]');
+const navAs=document.querySelectorAll('.nav-center a');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  secs.forEach(s=>{if(scrollY>=s.offsetTop-100)cur=s.id});
+  navAs.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
+  });
+});
+</script>
 </body>
 </html>
