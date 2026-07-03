@@ -230,7 +230,7 @@ section{ padding:6.5rem 0; position:relative; z-index:1; }
 .serv-d{ font-size:12.5px; color:var(--muted); font-weight:300; line-height:1.75; }
 
 /* ══ PROJECTS ══ */
-.feat-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.4rem; margin-bottom:2.6rem; }
+.feat-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:1.4rem; margin-bottom:2.6rem; }
 .feat-c{ background:var(--bg-2); border:1px solid var(--line); border-radius:16px; overflow:hidden; display:flex; flex-direction:column; transition:border-color .35s, transform .35s, box-shadow .35s; }
 .feat-c:hover{ border-color:rgba(203,168,118,.28); transform:translateY(-8px); box-shadow:0 32px 70px rgba(0,0,0,.5); }
 .feat-thumb{ height:110px; display:flex; align-items:center; padding:0 1.6rem; position:relative; border-bottom:1px solid var(--line); }
@@ -247,7 +247,7 @@ section{ padding:6.5rem 0; position:relative; z-index:1; }
 .proj-link:hover{ gap:10px; }
 .proj-link-disabled{ color:var(--muted-2); cursor:default; pointer-events:none; }
 
-.other-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; }
+.other-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1.25rem; }
 .proj-c{ background:var(--bg-2); border:1px solid var(--line); border-radius:var(--r); overflow:hidden; display:flex; flex-direction:column; transition:border-color .35s, transform .35s; }
 .proj-c:hover{ border-color:rgba(79,227,201,.26); transform:translateY(-6px); }
 .proj-body{ padding:1.5rem; flex:1; display:flex; flex-direction:column; }
@@ -478,7 +478,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
       <div class="info-cards reveal">
         <div class="info-c"><div class="info-ico">◈</div><div><div class="info-key">Location</div><div class="info-val">Cairo, Egypt</div></div></div>
         <div class="info-c"><div class="info-ico">◉</div><div><div class="info-key">Employed at</div><div class="info-val">Sieraj · Software Eng. Intern</div></div></div>
-        <div class="info-c"><div class="info-ico">◇</div><div><div class="info-key">Education</div><div class="info-val">EELU · B.Sc. IT · 2022–2026</div></div></div>
+        <div class="info-c"><div class="info-ico">◇</div><div><div class="info-key">Education</div><div class="info-val">EELU · B.Sc.  CS & IT · 2022–2026</div></div></div>
         <div class="info-c"><div class="info-ico">◆</div><div><div class="info-key">Primary Stack</div><div class="info-val">C# · ASP.NET Core · EF Core</div></div></div>
         <div class="info-c"><div class="info-ico">✓</div><div><div class="info-key">Freelance Status</div><div class="info-val" style="color:var(--teal)">Available now</div></div></div>
         <div class="info-c"><div class="info-ico">✉</div><div><div class="info-key">Email</div><div class="info-val">nadiahisham205@gmail.com</div></div></div>
@@ -603,28 +603,44 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
       </div>
 
       <div class="feat-c reveal bp">
-        <div class="feat-thumb" style="background:linear-gradient(135deg,#141026,#1E1638);"><span class="feat-thumb-glyph">Aa</span></div>
+        <div class="feat-thumb" style="background:linear-gradient(135deg,#0A1B2E,#0D2438);"><span class="feat-thumb-glyph">Mb</span></div>
         <div class="feat-body">
-          <div class="feat-eyebrow">Freelance · Dubai, UAE</div>
-          <div class="feat-name">ALAFKAR ALJADEEDA Trading LLC</div>
-          <div class="feat-block"><span class="feat-k">Problem</span><span class="feat-v">A licensed Dubai wholesale trading company needed a credible, bilingual web presence for B2B partners.</span></div>
-          <div class="feat-block"><span class="feat-k">Solution</span><span class="feat-v">A bilingual (EN/AR) corporate site covering business activities, services, and full compliance documentation.</span></div>
-          <div class="feat-block"><span class="feat-k">Features</span><span class="feat-v">Language toggle, compliance & governance section, contact form, embedded map.</span></div>
-          <div class="feat-techs"><span class="ptag">HTML5</span><span class="ptag">CSS3</span><span class="ptag">JavaScript</span><span class="ptag">i18n</span></div>
-          <a href="https://nadiahis99.github.io/ALAFKAR-ALJADEEDA-TRADING-LLC-/" target="_blank" class="proj-link">Live Demo →</a>
+          <div class="feat-eyebrow">Academic Project</div>
+          <div class="feat-name">Mabbet.com — Housing Platform</div>
+          <div class="feat-block"><span class="feat-k">Problem</span><span class="feat-v">Students and tenants searching for rooms or apartments often rely on scattered, unverified listings.</span></div>
+          <div class="feat-block"><span class="feat-k">Solution</span><span class="feat-v">A full-stack marketplace connecting property owners with people searching for rooms, apartments, or student housing.</span></div>
+          <div class="feat-block"><span class="feat-k">Architecture</span><span class="feat-v">5+ RESTful APIs on ASP.NET Core with EF Core and SQL Server, covering listings, users, and bookings.</span></div>
+          <div class="feat-techs"><span class="ptag">ASP.NET Core</span><span class="ptag">EF Core</span><span class="ptag">SQL Server</span></div>
+          <a href="https://github.com/mabeetDepi03/Mabeet/tree/main/MabeetApi/MabeetApi" target="_blank" class="proj-link">GitHub →</a>
         </div>
       </div>
 
       <div class="feat-c reveal bp">
-        <div class="feat-thumb" style="background:linear-gradient(135deg,#0B1F1E,#0E2826);"><span class="feat-thumb-glyph">Hc</span></div>
+        <div class="feat-thumb" style="background:linear-gradient(135deg,#160A0D,#1E0E12);"><span class="feat-thumb-glyph">Mj</span></div>
         <div class="feat-body">
-          <div class="feat-eyebrow">Concept Project · AI + ML.NET</div>
-          <div class="feat-name">Healthcare Appointment Assistant</div>
-          <div class="feat-block"><span class="feat-k">Problem</span><span class="feat-v">Patients often don't know which specialist to book for their symptoms, leading to mismatched appointments.</span></div>
-          <div class="feat-block"><span class="feat-k">Solution</span><span class="feat-v">A booking concept that recommends doctors and time slots from reported symptoms via an interactive AI chat assistant.</span></div>
-          <div class="feat-block"><span class="feat-k">Highlight</span><span class="feat-v">Symptom-based specialization matching, plus a doctor-facing dashboard for managing availability.</span></div>
-          <div class="feat-techs"><span class="ptag">HTML5</span><span class="ptag">JavaScript</span><span class="ptag">ML.NET</span><span class="ptag">UX Design</span></div>
-          <a href="https://nadiahis99.github.io/Healthcare-Appointment-Assistant/" target="_blank" class="proj-link">Live Demo →</a>
+          <div class="feat-eyebrow">Personal Project</div>
+          <div class="feat-name">Mojaz24 — Arabic News Platform</div>
+          <div class="feat-block"><span class="feat-k">Problem</span><span class="feat-v">The original .NET/MongoDB stack was costly to host and slow to iterate on for a fast-moving news site.</span></div>
+          <div class="feat-block"><span class="feat-k">Solution</span><span class="feat-v">A full-stack Arabic news platform migrated to a leaner PHP/MySQL backend on Hostinger.</span></div>
+          <div class="feat-block"><span class="feat-k">Architecture</span><span class="feat-v">Custom content management system for publishing, categorizing, and managing articles at scale.</span></div>
+          <div class="feat-techs"><span class="ptag">PHP</span><span class="ptag">MySQL</span><span class="ptag">REST APIs</span></div>
+          <div style="display:flex; gap:16px; margin-top:auto;">
+            <a href="https://mojaz24.net/" target="_blank" class="proj-link" style="margin-top:0;">Live Demo →</a>
+            <a href="https://github.com/Nadiahis99/Mojaz24-Update" target="_blank" class="proj-link" style="margin-top:0;">GitHub →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="feat-c reveal bp">
+        <div class="feat-thumb" style="background:linear-gradient(135deg,#0A1A08,#122210);"><span class="feat-thumb-glyph">K9</span></div>
+        <div class="feat-body">
+          <div class="feat-eyebrow">Freelance Project</div>
+          <div class="feat-name">Kora90 — Football News</div>
+          <div class="feat-block"><span class="feat-k">Problem</span><span class="feat-v">The client needed a fast, RTL-friendly sports news site with a secure way to publish daily updates.</span></div>
+          <div class="feat-block"><span class="feat-k">Solution</span><span class="feat-v">An Arabic RTL sports news platform built on a PHP/MySQL stack with a dedicated admin panel.</span></div>
+          <div class="feat-block"><span class="feat-k">Challenges</span><span class="feat-v">Handled dynamic page conversion, admin panel security hardening, and mobile layout fixes.</span></div>
+          <div class="feat-techs"><span class="ptag">PHP</span><span class="ptag">MySQL</span><span class="ptag">RTL</span></div>
+          <a href="https://kora90.mojaz24.net/" target="_blank" class="proj-link">Live Demo →</a>
         </div>
       </div>
 
@@ -635,31 +651,21 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
       <div class="proj-c reveal">
         <div class="proj-body">
-          <div class="proj-num">Project · Academic</div>
-          <div class="proj-name">Mabbet.com — Housing Platform</div>
-          <div class="proj-desc">Full-stack app connecting owners listing accommodations with clients searching for rooms, apartments, or student housing. Built 5+ RESTful APIs.</div>
-          <div class="proj-techs"><span class="ptag">ASP.NET Core</span><span class="ptag">EF Core</span><span class="ptag">SQL Server</span></div>
-          <a href="https://github.com/nadiahis99" target="_blank" class="proj-link">GitHub →</a>
+          <div class="proj-num">Freelance · Dubai, UAE</div>
+          <div class="proj-name">ALAFKAR ALJADEEDA Trading LLC</div>
+          <div class="proj-desc">Bilingual (EN/AR) corporate site for a licensed Dubai wholesale trading company, covering business activities, services, and compliance documentation.</div>
+          <div class="proj-techs"><span class="ptag">HTML5</span><span class="ptag">CSS3</span><span class="ptag">JavaScript</span></div>
+          <a href="https://nadiahis99.github.io/ALAFKAR-ALJADEEDA-TRADING-LLC-/" target="_blank" class="proj-link">Live Demo →</a>
         </div>
       </div>
 
       <div class="proj-c reveal">
         <div class="proj-body">
-          <div class="proj-num">Project · Personal</div>
-          <div class="proj-name">Mojaz24 — News Platform</div>
-          <div class="proj-desc">Full-stack Arabic news platform, migrated from a .NET/MongoDB stack to a PHP/MySQL backend on Hostinger with a custom content management system.</div>
-          <div class="proj-techs"><span class="ptag">PHP</span><span class="ptag">MySQL</span><span class="ptag">REST APIs</span></div>
-          <a href="https://mojaz24.net/" target="_blank" class="proj-link">Live Demo →</a>
-        </div>
-      </div>
-
-      <div class="proj-c reveal">
-        <div class="proj-body">
-          <div class="proj-num">Project · Freelance</div>
-          <div class="proj-name">Kora90 — Football News</div>
-          <div class="proj-desc">Arabic RTL sports news platform on a PHP/MySQL stack. Handled dynamic page conversion, admin panel security, and mobile layout fixes.</div>
-          <div class="proj-techs"><span class="ptag">PHP</span><span class="ptag">MySQL</span><span class="ptag">RTL</span></div>
-          <a href="https://kora90.mojaz24.net/" target="_blank" class="proj-link">Live Demo →</a>
+          <div class="proj-num">Concept · AI + ML.NET</div>
+          <div class="proj-name">Healthcare Appointment Assistant</div>
+          <div class="proj-desc">Symptom-based doctor and appointment recommender with an interactive AI chat assistant and a doctor-facing dashboard.</div>
+          <div class="proj-techs"><span class="ptag">JavaScript</span><span class="ptag">ML.NET</span><span class="ptag">UX Design</span></div>
+          <a href="https://nadiahis99.github.io/Healthcare-Appointment-Assistant/" target="_blank" class="proj-link">Live Demo →</a>
         </div>
       </div>
 
@@ -679,7 +685,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
           <div class="proj-name">Fitness Tracker Application</div>
           <div class="proj-desc">Java desktop app using Factory, Singleton, Decorator, Adapter & Builder design patterns to manage workouts, goals, and diet plans.</div>
           <div class="proj-techs"><span class="ptag">Java</span><span class="ptag">OOP</span><span class="ptag">Design Patterns</span></div>
-          <a href="https://github.com/nadiahis99" target="_blank" class="proj-link">GitHub →</a>
+          <a href="https://github.com/Nadiahis99/Online-Learning-platform-API" target="_blank" class="proj-link">GitHub →</a>
         </div>
       </div>
 
